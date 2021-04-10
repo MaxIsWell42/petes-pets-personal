@@ -16,4 +16,12 @@ const PetSchema = new Schema({
   timestamps: true
 });
 
+const mongoosePaginate = require('mongoose-paginate');
+
+mongoosePaginate.paginate.options = {
+  limit: 3 // how many records on each page
+};
+
+PetSchema.plugin(mongoosePaginate);
+
 module.exports = mongoose.model('Pet', PetSchema);
